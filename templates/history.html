@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Transaction</th>
+                <th scope="col">Symbol</th>
+                <th scope="col">Purchase/Sale Price</th>
+                <th scope="col">Shares</th>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in history %}
+            <tr>
+                <td scope="row">{{ entry.action }}</td>
+                <td>{{ entry.symbol }}</td>
+                <td>{{ entry.price }}</td>
+                <td>{{ entry.shares }}</td>
+                <td>{{ entry.date }}</td>
+                <td>{{ entry.time }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
